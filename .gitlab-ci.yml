@@ -1,0 +1,20 @@
+image: node:12-alpine
+
+stages:
+  - ci
+
+cache:
+  paths:
+    - node_modules/
+    - .yarn/
+
+ci:
+  stage: ci
+  only:
+    - branches
+    - pushes
+  script:
+    - apk update && apk add git python build-base
+    - yarn config set cache-folder .yarn
+    - yarn install
+    - yarn ci
