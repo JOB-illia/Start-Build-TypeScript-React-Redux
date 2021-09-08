@@ -1,24 +1,11 @@
 import React from 'react';
-import Counter from '../../components/Counter/Counter';
-import Styled from './MainPageStyle';
-import { ButtonIcon } from '../../atoms/Buttons/Buttons';
+import Typography from '@material-ui/core/Typography';
+import Layout from '../../components/Layout';
 
-interface IMainPage {
-  onClick: () => void;
-}
-
-const MainPage: React.FC<IMainPage> = ({ onClick }: IMainPage) => {
-
-
-  return (
-    <Styled.Body>
-      <Styled.Title>Main Page</Styled.Title>
-      <Counter />
-      <ButtonIcon size="small" onClick={onClick}>
-        <Styled.IconBright />
-      </ButtonIcon>
-    </Styled.Body>
-  )
-}
+const MainPage: React.FC = () => (
+  <Layout>
+    <Typography variant="h1">Main page</Typography>
+  </Layout>
+);
 
 export default MainPage;

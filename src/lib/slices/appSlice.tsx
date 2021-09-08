@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
 interface IApp {
@@ -9,38 +9,30 @@ interface IApp {
 const initialState: IApp = {
   value: 0,
   mode: false,
-}
+};
 
 export const counterSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    increment: state => {
-      state.value += 1
+    increment: (state) => {
+      state.value += 1;
     },
-    decrement: state => {
-      state.value -= 1
-    },
-    changeDark: state => {
-      state.mode = !state.mode
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
+    decrement: (state) => {
+      state.value -= 1;
     },
     modeChange: (state, action: PayloadAction<boolean>) => {
       state.mode = action.payload;
     },
-  }
-})
+  },
+});
 
 export const {
   increment,
   decrement,
-  incrementByAmount,
   modeChange,
-  changeDark
-} = counterSlice.actions
+} = counterSlice.actions;
 
-export const selectCount = (state: RootState): number => state.counter.value
+export const selectCount = (state: RootState): number => state.counter.value;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;
